@@ -6,8 +6,16 @@ pool:
 
 variables:
   terraformVersion: '1.0.0'  # specify your desired Terraform version
-
 steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: '%SERVICE_CONN_NAME%' # Replace with your actual service connection name
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "Logging in to Azure"
+      az account show
+
 - script: |
     echo "Install Terraform"
     wget https://releases.hashicorp.com/terraform/$(terraformVersion)/terraform_$(terraformVersion)_linux_amd64.zip
