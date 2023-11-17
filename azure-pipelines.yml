@@ -23,12 +23,13 @@ steps:
     inlineScript: |
       echo "Logging in to Azure"
       az account show
+      terraform init
 
-- script: |
-    echo "Initializing Terraform"
-    terraform init
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
-  displayName: 'Terraform Init'
+# - script: |
+#     echo "Initializing Terraform"
+#     terraform init
+#   workingDirectory: '$(System.DefaultWorkingDirectory)'
+#   displayName: 'Terraform Init'
 
 - script: |
     echo "Generating Terraform Plan"
