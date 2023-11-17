@@ -11,7 +11,7 @@ steps:
 - task: MicrosoftSecurityDevOps@1
   inputs:
     command: 'run'  # Choose from 'run', 'pre-job', 'post-job'
-    config: 'path/to/your/config.gdnconfig'  # Optional: Specify the path to your MSDO config file
+    config: '.'  # Optional: Specify the path to your MSDO config file
     policy: 'azuredevops'  # Choose from 'azuredevops', 'microsoft', 'none'
     categories: 'IaC,secrets'  # Optional: Specify categories like 'secrets', 'code', etc.
     languages: 'javascript,typescript'  # Optional: Specify languages to analyze
