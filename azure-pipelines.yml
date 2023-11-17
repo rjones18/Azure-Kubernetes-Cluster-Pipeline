@@ -11,9 +11,9 @@ steps:
 - task: MicrosoftSecurityDevOps@1
   displayName: 'Microsoft Security DevOps'
   inputs: 
-  command: run
+  command: 'run'
   # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
-  policy: azuredevops
+  policy: 'azuredevops'
   # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
   # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
   # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
