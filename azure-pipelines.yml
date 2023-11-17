@@ -10,7 +10,7 @@ variables:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $(service_conn_name) # Replace with your actual service connection name
+    azureSubscription: 'terrafromiacdevops1' # Replace with your actual service connection name
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
