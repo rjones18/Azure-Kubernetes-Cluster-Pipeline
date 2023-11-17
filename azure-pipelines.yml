@@ -6,12 +6,11 @@ pool:
 
 variables:
   terraformVersion: '1.0.0'  # specify your desired Terraform version
-  serviceConnectionName: $(service_conn_name) # Assuming this is set in your pipeline settings as a secret
 
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $(serviceConnectionName) # Replace with your actual service connection name
+    azureSubscription: $(service_conn_name) # Replace with your actual service connection name
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
