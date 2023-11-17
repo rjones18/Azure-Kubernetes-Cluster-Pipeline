@@ -4,27 +4,33 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  terraformVersion: '1.0.0'  # specify your desired Terraform version
+
 steps:
 - script: |
     echo "Install Terraform"
-    wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
-    unzip terraform_0.12.24_linux_amd64.zip
+    wget https://releases.hashicorp.com/terraform/$(terraformVersion)/terraform_$(terraformVersion)_linux_amd64.zip
+    unzip terraform_$(terraformVersion)_linux_amd64.zip
     sudo mv terraform /usr/local/bin/
   displayName: 'Install Terraform'
 
 - script: |
     echo "Initializing Terraform"
     terraform init
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
   displayName: 'Terraform Init'
 
-
 - script: |
-    echo "Validating Terraform"
+    echo "Generating Terraform Plan"
     terraform plan
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
   displayName: 'Terraform Plan'
 
 - script: |
     echo "Applying Terraform"
     terraform apply -auto-approve
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
   displayName: 'Terraform Apply'
+
 
