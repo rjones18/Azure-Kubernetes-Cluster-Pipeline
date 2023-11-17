@@ -8,17 +8,17 @@ variables:
   terraformVersion: '1.0.0'  # specify your desired Terraform version
 
 steps:
-- task: MicrosoftSecurityDevOps@1
-  displayName: 'Microsoft Security DevOps'
-  inputs: 
-  run
-  azuredevops
-  # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
-  # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
-  # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
-  # break: boolean. Optional. If true, will fail this build step if any error level results are found. Default: false.
-  # publish: boolean. Optional. If true, will publish the output SARIF results file to the chosen pipeline artifact. Default: true.
-  # artifactName: string. Optional. The name of the pipeline artifact to publish the SARIF result file to. Default: CodeAnalysisLogs*.
+- task: MicrosoftDefenderForCloud.MSDO@0
+  inputs:
+    command: 'run'  # Choose from 'run', 'pre-job', 'post-job'
+    config: 'path/to/your/config.gdnconfig'  # Optional: Specify the path to your MSDO config file
+    policy: 'azuredevops'  # Choose from 'azuredevops', 'microsoft', 'none'
+    categories: 'IaC,secrets'  # Optional: Specify categories like 'secrets', 'code', etc.
+    languages: 'javascript,typescript'  # Optional: Specify languages to analyze
+    tools: 'terrascan,trivy'  # Optional: Specify tools like 'bandit', 'binskim', etc.
+    break: false  # Set to true if you want to fail the build on error results
+    publish: true  # Set to true to publish SARIF results
+    artifactName: 'CodeAnalysisLogs'  # Optional: Specify the artifact name for SARIF results
 
 - task: TerraformTaskV4@4
   inputs:
