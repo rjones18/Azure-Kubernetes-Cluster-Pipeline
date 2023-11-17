@@ -38,20 +38,12 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    backendServiceArm: 'terrafromiacdevops1'
-    backendAzureRmResourceGroupName: 'test-grp'
-    backendAzureRmStorageAccountName: 'regterraformstate201'
-    backendAzureRmContainerName: 'tfstatefiles'
-    backendAzureRmKey: 'az-devops-kubernetes-terraform.tfstate'
+    environmentServiceNameAzureRM: 'terrafromiacdevops1'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    backendServiceArm: 'terrafromiacdevops1'
-    backendAzureRmResourceGroupName: 'test-grp'
-    backendAzureRmStorageAccountName: 'regterraformstate201'
-    backendAzureRmContainerName: 'tfstatefiles'
-    backendAzureRmKey: 'az-devops-kubernetes-terraform.tfstate'
+    environmentServiceNameAzureRM: 'terrafromiacdevops1'
 
 
