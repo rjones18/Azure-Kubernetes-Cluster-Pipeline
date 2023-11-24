@@ -14,6 +14,10 @@ terraform {
       source  = "hashicorp/null"
       version = ">= 3.0"
     }
+    azapi = {
+      source  = "azure/azapi"
+      version = "~>1.5"
+    }
   }
 
   # Terraform State Storage to Azure Storage Container
@@ -21,7 +25,7 @@ terraform {
     resource_group_name  = "test-grp"
     storage_account_name = "regterraformstate201"
     container_name       = "tfstatefiles"
-    key                  = "az-devops-kubernetes-terraform.tfstate"
+    key                  = "az-devops-kubernetes-terraform2.tfstate"
   }
 }
 

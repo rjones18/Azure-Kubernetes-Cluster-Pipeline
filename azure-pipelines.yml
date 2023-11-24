@@ -14,7 +14,7 @@ steps:
     # config: '.'  # Optional: Specify the path to your MSDO config file
     policy: 'azuredevops'  # Choose from 'azuredevops', 'microsoft', 'none'
     categories: 'IaC,secrets'  # Optional: Specify categories like 'secrets', 'code', etc.
-    languages: 'javascript,typescript'  # Optional: Specify languages to analyze
+    # languages: 'javascript,typescript'  # Optional: Specify languages to analyze
     tools: 'terrascan,trivy'  # Optional: Specify tools like 'bandit', 'binskim', etc.
     break: false  # Set to true if you want to fail the build on error results
     publish: true  # Set to true to publish SARIF results
