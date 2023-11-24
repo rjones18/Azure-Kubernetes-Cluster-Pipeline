@@ -28,7 +28,7 @@ steps:
     backendAzureRmResourceGroupName: 'test-grp'
     backendAzureRmStorageAccountName: 'regterraformstate201'
     backendAzureRmContainerName: 'tfstatefiles'
-    backendAzureRmKey: 'az-devops-kubernetes-terraform.tfstate'
+    backendAzureRmKey: 'az-devops-kubernetes-terraform2.tfstate'
 
 - task: TerraformTaskV4@4
   inputs:
