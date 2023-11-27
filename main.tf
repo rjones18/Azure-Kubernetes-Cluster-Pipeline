@@ -1,10 +1,6 @@
-resource "random_pet" "rg_name" {
-  prefix = var.resource_group_name_prefix
-}
-
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
-  name     = random_pet.rg_name.id
+  name     = "Kubernetes-resources-rg"
 }
 
 resource "azurerm_virtual_network" "my_terraform_network" {
@@ -85,11 +81,11 @@ resource "azurerm_storage_account" "my_storage_account" {
 
 resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   count                 = 3
-  name                  = "myVM-${count.index}"
+  name                  = "Kubernetes-VM-${count.index}"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic[count.index].id]
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_DS2_v2"
 
   os_disk {
     name                 = "myOsDisk-${count.index}"
