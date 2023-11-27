@@ -29,8 +29,6 @@ steps:
     echo Authenticating with Snyk...
     snyk auth $(snykToken)
   displayName: 'Authenticate Snyk CLI'
-  env:
-    SNYK_TOKEN: $(snykToken)  # This should be a secret variable in your Azure DevOps pipeline
 
 - script: |
     echo Running Snyk IaC scan...
