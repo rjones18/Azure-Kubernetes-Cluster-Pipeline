@@ -37,7 +37,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
-    destination_port_range     = "0-65000"
+    destination_port_range     = "22"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
@@ -148,9 +148,14 @@ resource "azurerm_network_interface" "my_terraform_nic" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "example" {
-  count                   = 3
-  network_interface_id    = azurerm_network_interface.my_terraform_nic[count.index].id
+# resource "azurerm_network_interface_security_group_association" "example" {
+#   count                   = 3
+#   network_interface_id    = azurerm_network_interface.my_terraform_nic[count.index].id
+#   network_security_group_id = azurerm_network_security_group.my_terraform_nsg.id
+# }
+
+resource "azurerm_subnet_network_security_group_association" "example" {
+  subnet_id                 = azurerm_subnet.my_terraform_subnet.id
   network_security_group_id = azurerm_network_security_group.my_terraform_nsg.id
 }
 
