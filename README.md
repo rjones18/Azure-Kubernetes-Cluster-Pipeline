@@ -1,7 +1,6 @@
 # Azure-Kubernetes-Cluster-Pipeline
 
-
-In this project, I've successfully orchestrated a Kubernetes cluster, leveraging Microsoft Azure's robust infrastructure to configure three virtual machines: one master node and two worker nodes. Enhancing the reliability of the project, Azure Pipelines is integrated for the automated deployment of Terraform IAC for the creation of the Virtual Machines and there dependencies. Additionally, three custom bash scripts were crafted to automate the initial configuration of each VM, laying the groundwork for a seamless cluster formation. Security is fortified with the inclusion of Snyk and Defender for DevOps providing vigilant vulnerability monitoring and maintaining the cluster's defenses against emerging threats.
+In this project, I've successfully orchestrated a Kubernetes cluster using kubeadm on Microsoft Azure, configuring three virtual machines—one master node and two worker nodes. The cluster setup was streamlined with kubeadm, which played a crucial role in initializing the master node and joining the worker nodes, ensuring efficient cluster management. Azure Pipelines facilitated the automated deployment of Terraform Infrastructure as Code (IAC) for creating the Virtual Machines and their dependencies. Additionally, I developed three custom bash scripts to automate the installation of Kubernetes components like kubeadm, kubelet, and kubectl on each VM, which paved the way for a seamless cluster formation. To bolster security, the integration of Snyk and Defender for DevOps provides vigilant vulnerability monitoring, maintaining the cluster's defenses against emerging threats and ensuring a robust, secure infrastructure for application deployment and management.
 
 ## Architecture Breakdown
 
