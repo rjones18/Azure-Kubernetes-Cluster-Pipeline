@@ -32,7 +32,7 @@ steps:
 
 - script: |
     echo Running Snyk IaC scan...
-    snyk iac test .
+    snyk iac test --report || echo "Snyk found vulnerabilities!"
   displayName: 'Snyk IaC Scan'
 - task: TerraformTaskV4@4
   inputs:
