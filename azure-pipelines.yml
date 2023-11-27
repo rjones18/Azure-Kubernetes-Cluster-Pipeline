@@ -19,12 +19,23 @@ steps:
     break: false  # Set to true if you want to fail the build on error results
     publish: true  # Set to true to publish SARIF results
     artifactName: 'CodeAnalysisLogs'  # Optional: Specify the artifact name for SARIF results
-- task: SnykSecurityScan@1
-  inputs:
-    serviceConnectionEndpoint: 'snyk_conn'
-    testType: 'code'
-    monitorWhen: 'always'
-    failOnIssues: false
+
+- script: |
+    echo Installing Snyk CLI...
+    npm install -g snyk
+  displayName: 'Install Snyk CLI'
+
+- script: |
+    echo Authenticating with Snyk...
+    snyk auth $(snykToken)
+  displayName: 'Authenticate Snyk CLI'
+  env:
+    SNYK_TOKEN: $(snykToken)  # This should be a secret variable in your Azure DevOps pipeline
+
+- script: |
+    echo Running Snyk IaC scan...
+    snyk iac test .
+  displayName: 'Snyk IaC Scan'
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
