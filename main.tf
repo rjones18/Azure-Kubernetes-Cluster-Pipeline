@@ -37,7 +37,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
-    destination_port_range     = "*"
+    destination_port_range     = "0-65000"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
