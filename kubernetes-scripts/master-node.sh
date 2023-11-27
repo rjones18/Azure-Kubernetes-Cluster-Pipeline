@@ -11,8 +11,8 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
-10.0.1.4 k8s-control
-10.0.1.6 k8s-worker1
+10.0.1.6 k8s-control
+10.0.1.4 k8s-worker1
 10.0.1.5 k8s-worker2
 EOF
 cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
