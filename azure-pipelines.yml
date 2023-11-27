@@ -27,7 +27,7 @@ steps:
 
 - script: |
     echo Authenticating with Snyk...
-    snyk auth $(snykToken)
+    snyk auth $(SNYK_TOKEN)
   displayName: 'Authenticate Snyk CLI'
 
 - script: |
