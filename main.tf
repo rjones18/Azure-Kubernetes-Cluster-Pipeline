@@ -31,7 +31,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
-    name                       = "Allow All"
+    name                       = "SSH"
     priority                   = 1001
     direction                  = "Inbound"
     access                     = "Allow"
@@ -46,7 +46,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     priority                   = 1002
     direction                  = "Inbound"
     access                     = "Allow"
-    protocol                   = "Tcp"
+    protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "80"
     source_address_prefix      = "*"
@@ -58,7 +58,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     priority                   = 1003
     direction                  = "Inbound"
     access                     = "Allow"
-    protocol                   = "Tcp"
+    protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "8080"
     source_address_prefix      = "*"
@@ -191,8 +191,8 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts"
     version   = "latest"
   }
 
