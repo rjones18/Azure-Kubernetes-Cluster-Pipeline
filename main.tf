@@ -38,7 +38,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "*"
+    source_address_prefix      = "107.204.20.9/32"
     destination_address_prefix = "*"
   }
   security_rule {
@@ -201,7 +201,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
 
   admin_ssh_key {
     username   = var.username
-    public_key = jsondecode(azapi_resource_action.ssh_public_key_gen.output["result"]).publicKey
+    public_key = azapi_resource_action.ssh_public_key_gen.output.publicKey
   }
 
   boot_diagnostics {
